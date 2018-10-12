@@ -14,12 +14,74 @@ namespace MihoInterface
 {
     public partial class Miho : Form
     {
+        private Driver mihoDriver = null;
+        private bool closing = false;
+
         public Miho()
         {
             InitializeComponent();
             Driver.Setup().ContinueWith(
-                (task) => statusLabel.Text = "Ready"
+                (task) =>
+                {
+                    statusLabel.Text = "Ready";
+                    btnStart.Enabled = true;
+                }
             );
+        }
+
+        private void btnStart_Click(object sender, EventArgs e)
+        {
+            if (mihoDriver == null)
+            {
+                btnStart.Enabled = false;
+                btnStart.Text = "Starting...";
+
+                mihoDriver = new Driver();
+                mihoDriver.WaitForStart().ContinueWith(
+                    (task) =>
+                    {
+                        BeginInvoke(new MethodInvoker(
+                            () =>
+                            {
+                                btnStart.Text = "Stop";
+                                btnStart.Enabled = true;
+                            }
+                        ));
+                    }
+                );
+
+                mihoDriver.WaitForStop().ContinueWith(
+                    (task) =>
+                    {
+                        if (!closing)
+                        {
+                            BeginInvoke(new MethodInvoker(
+                                () =>
+                                {
+                                    mihoDriver = null;
+                                    btnStart.Text = "Start";
+                                    btnStart.Enabled = true;
+                                }
+                            ));
+                        }
+                    }
+                );
+            }
+            else
+            {
+                btnStart.Enabled = false;
+                btnStart.Text = "Stopping...";
+                mihoDriver.Stop();
+            }
+        }
+
+        private void Miho_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            closing = true;
+            if (mihoDriver != null)
+            {
+                mihoDriver.Stop();
+            }
         }
     }
 }

@@ -19,7 +19,7 @@ namespace MihoDriver
         {
 #pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously
 #if DEBUG
-            DriverPath = path != null ? path : Path.GetFullPath(@"..\..\miho-driver\build\miho_driver.exe");
+            DriverPath = path != null ? path : Path.GetFullPath(@"..\..\..\MihoDriver\miho-driver\build\miho_driver.exe");
 #else
             DriverPath = path != null ? path : Path.GetTempPath() + @"MihoPCRemote\miho_driver.exe";
 
@@ -48,8 +48,43 @@ namespace MihoDriver
 #endif
         }
 
+        private Task startTask;
+        private Task joinTask;
+        private Process driverProcess;
+
         public Driver()
         {
+            startTask = Task.Run(
+                () =>
+                {
+                    driverProcess = Process.Start(new ProcessStartInfo()
+                    {
+                        FileName = DriverPath,
+                        RedirectStandardInput = true,
+                        RedirectStandardOutput = true,
+                        RedirectStandardError = true,
+                        UseShellExecute = false,
+                        CreateNoWindow = true,
+                    });
+                }
+            );
+
+            joinTask = startTask.ContinueWith((task) => driverProcess.WaitForExit());
+        }
+
+        public async Task WaitForStart()
+        {
+            await startTask;
+        }
+
+        public async Task WaitForStop()
+        {
+            await joinTask;
+        }
+
+        public void Stop()
+        {
+            Task.Run(() => driverProcess.Kill());
         }
     }
 }
