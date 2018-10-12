@@ -21,11 +21,13 @@ namespace MihoInterface
         {
             InitializeComponent();
             Driver.Setup().ContinueWith(
-                (task) =>
-                {
-                    statusLabel.Text = "Ready";
-                    btnStart.Enabled = true;
-                }
+                (task) => BeginInvoke(new MethodInvoker(
+                    () =>
+                    {
+                        statusLabel.Text = "Ready";
+                        btnStart.Enabled = true;
+                    }
+                ))
             );
         }
 
@@ -38,33 +40,24 @@ namespace MihoInterface
 
                 mihoDriver = new Driver();
                 mihoDriver.WaitForStart().ContinueWith(
-                    (task) =>
-                    {
-                        BeginInvoke(new MethodInvoker(
-                            () =>
-                            {
-                                btnStart.Text = "Stop";
-                                btnStart.Enabled = true;
-                            }
-                        ));
-                    }
+                    (task) =>  BeginInvoke(new MethodInvoker(
+                        () =>
+                        {
+                            btnStart.Text = "Stop";
+                            btnStart.Enabled = true;
+                        }
+                    ))
                 );
 
                 mihoDriver.WaitForStop().ContinueWith(
-                    (task) =>
-                    {
-                        if (!closing)
+                    (task) => closing ? null : BeginInvoke(new MethodInvoker(
+                        () =>
                         {
-                            BeginInvoke(new MethodInvoker(
-                                () =>
-                                {
-                                    mihoDriver = null;
-                                    btnStart.Text = "Start";
-                                    btnStart.Enabled = true;
-                                }
-                            ));
+                            mihoDriver = null;
+                            btnStart.Text = "Start";
+                            btnStart.Enabled = true;
                         }
-                    }
+                    ))
                 );
             }
             else
