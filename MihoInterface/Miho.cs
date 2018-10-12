@@ -43,6 +43,7 @@ namespace MihoInterface
                     (task) =>  BeginInvoke(new MethodInvoker(
                         () =>
                         {
+                            statusLabel.Text = "Running";
                             btnStart.Text = "Stop";
                             btnStart.Enabled = true;
                         }
@@ -54,6 +55,7 @@ namespace MihoInterface
                         () =>
                         {
                             mihoDriver = null;
+                            statusLabel.Text = "Ready";
                             btnStart.Text = "Start";
                             btnStart.Enabled = true;
                         }

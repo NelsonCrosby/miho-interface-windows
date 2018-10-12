@@ -46,7 +46,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitignore" />
-    <EmbeddedResource Include="miho-driver\build\miho_driver.exe" />
+    <EmbeddedResource Include="miho-driver\build\miho.exe">
+      <LogicalName>MihoDriver.driver</LogicalName>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
