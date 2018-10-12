@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using MihoDriver;
 
 namespace MihoInterface
 {
@@ -15,6 +17,9 @@ namespace MihoInterface
         public Miho()
         {
             InitializeComponent();
+            Driver.Setup().ContinueWith(
+                (task) => statusLabel.Text = "Ready"
+            );
         }
     }
 }

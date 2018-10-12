@@ -4,12 +4,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 15.0.28010.2041
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MihoInterface", "MihoInterface\MihoInterface.csproj", "{84526C20-FA5C-419D-B326-AC6B66866E82}"
+	ProjectSection(ProjectDependencies) = postProject
+		{835177F6-88BF-4FDE-9BD0-6AFF2B4832E9} = {835177F6-88BF-4FDE-9BD0-6AFF2B4832E9}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BC0E9427-890B-4FB1-AB76-62104A18BDD5}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
 		README.md = README.md
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MihoDriver", "MihoDriver\MihoDriver.csproj", "{835177F6-88BF-4FDE-9BD0-6AFF2B4832E9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +26,10 @@ Global
 		{84526C20-FA5C-419D-B326-AC6B66866E82}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{84526C20-FA5C-419D-B326-AC6B66866E82}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{84526C20-FA5C-419D-B326-AC6B66866E82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{835177F6-88BF-4FDE-9BD0-6AFF2B4832E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{835177F6-88BF-4FDE-9BD0-6AFF2B4832E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{835177F6-88BF-4FDE-9BD0-6AFF2B4832E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{835177F6-88BF-4FDE-9BD0-6AFF2B4832E9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
