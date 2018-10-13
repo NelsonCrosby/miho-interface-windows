@@ -61,16 +61,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Miho.cs">
+    <Compile Include="FormInterface.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Miho.Designer.cs">
-      <DependentUpon>Miho.cs</DependentUpon>
+    <Compile Include="FormInterface.Designer.cs">
+      <DependentUpon>FormInterface.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Miho.resx">
-      <DependentUpon>Miho.cs</DependentUpon>
+    <EmbeddedResource Include="FormInterface.resx">
+      <DependentUpon>FormInterface.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -96,9 +96,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MihoDriver\MihoDriver.csproj">
+    <ProjectReference Include="..\MihoDriver\Miho.Driver.csproj">
       <Project>{835177f6-88bf-4fde-9bd0-6aff2b4832e9}</Project>
-      <Name>MihoDriver</Name>
+      <Name>Miho.Driver</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

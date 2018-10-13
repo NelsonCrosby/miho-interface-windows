@@ -8,16 +8,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-using MihoDriver;
 
-namespace MihoInterface
+namespace Miho.Interface.Forms
 {
-    public partial class Miho : Form
+    using Driver;
+
+    public partial class FormInterface : Form
     {
         private Driver mihoDriver = null;
         private bool closing = false;
 
-        public Miho()
+        public FormInterface()
         {
             InitializeComponent();
             Driver.Setup().ContinueWith(

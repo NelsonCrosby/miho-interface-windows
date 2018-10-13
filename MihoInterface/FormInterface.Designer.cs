@@ -1,6 +1,6 @@
-﻿namespace MihoInterface
+﻿namespace Miho.Interface.Forms
 {
-    partial class Miho
+    partial class FormInterface
     {
         /// <summary>
         /// Required designer variable.

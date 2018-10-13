@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2041
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MihoInterface", "MihoInterface\MihoInterface.csproj", "{84526C20-FA5C-419D-B326-AC6B66866E82}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Miho.Interface.Forms", "MihoInterface\Miho.Interface.Forms.csproj", "{84526C20-FA5C-419D-B326-AC6B66866E82}"
 	ProjectSection(ProjectDependencies) = postProject
 		{835177F6-88BF-4FDE-9BD0-6AFF2B4832E9} = {835177F6-88BF-4FDE-9BD0-6AFF2B4832E9}
 	EndProjectSection
@@ -14,7 +14,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MihoDriver", "MihoDriver\MihoDriver.csproj", "{835177F6-88BF-4FDE-9BD0-6AFF2B4832E9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Miho.Driver", "MihoDriver\Miho.Driver.csproj", "{835177F6-88BF-4FDE-9BD0-6AFF2B4832E9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

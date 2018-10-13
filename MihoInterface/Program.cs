@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MihoInterface
+namespace Miho.Interface.Forms
 {
     static class Program
     {
@@ -16,7 +16,7 @@ namespace MihoInterface
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Miho());
+            Application.Run(new FormInterface());
         }
     }
 }
